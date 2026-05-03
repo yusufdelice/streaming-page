@@ -1,0 +1,18 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Messages: anyone can read, only authenticated users can write
+    match /messages/{messageId} {
+      allow read: if true;
+      allow create: if request.auth != null
+                    && request.resource.data.text is string
+                    && request.resource.data.text.size() > 0
+                    && request.resource.data.text.size() <= 300
+                    && request.resource.data.uid == request.auth.uid;
+      // No update or delete for chat messages
+      allow update, delete: if false;
+    }
+
+  }
+}
