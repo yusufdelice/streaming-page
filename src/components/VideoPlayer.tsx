@@ -1,12 +1,10 @@
 "use client";
 
 export default function VideoPlayer() {
-  // Monterey Bay Aquarium – Open Sea Cam (24/7 YouTube Live)
-  // Channel ID: UCt5ACnFVDEGjMqEL9Gg7JMA
-  // Swap NEXT_PUBLIC_STREAM_URL in .env.local with your own HLS embed src
+  // Royalty-free 24/7 YouTube Live stream (Lofi Girl - beats to relax/study to)
   const rawSrc =
     process.env.NEXT_PUBLIC_STREAM_URL ||
-    "https://www.youtube.com/embed/live_stream?channel=UCt5ACnFVDEGjMqEL9Gg7JMA&autoplay=1&mute=1&rel=0&modestbranding=1";
+    "https://www.youtube.com/embed/jfKfPFIGNEw?autoplay=1&mute=1&rel=0&modestbranding=1";
 
   // Helper to safely format standard YouTube links to embed format
   let src = rawSrc.trim();
@@ -30,9 +28,9 @@ export default function VideoPlayer() {
       <div className="video-footer">
         <div className="stream-info">
           <span className="pulse-dot" />
-          <span className="stream-label">Monterey Bay Aquarium — Open Sea Cam</span>
+          <span className="stream-label">Lofi Girl — Beats to Relax / Study to</span>
         </div>
-        <span className="stream-sub">24/7 Live • No login required to watch</span>
+        <span className="stream-sub">24/7 Live • Royalty-Free • No login required to watch</span>
       </div>
     </div>
   );
